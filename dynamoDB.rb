@@ -197,7 +197,7 @@ if(choice=='1')
   puts 'Table1 deleted.'
 elsif(choice=='2')
   table2.delete
-  sleep 1 while table1.exists? 
+  sleep 1 while table2.exists? 
   puts 'Table2 deleted'
 else
   puts 'No tables deleted.'

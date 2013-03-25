@@ -184,16 +184,20 @@ while(action!='exit')
     end
   end
 end
+puts 'Changing throughputs'
 table1.provision_throughput(:read_capacity_units => 4, :write_capacity_units => 4)
 table2.provision_throughput(:read_capacity_units => 6, :write_capacity_units => 6)
+sleep 1 while (table1.read_capacity_units==3 or table1.write_capacity_units==3 or table2.read_capacity_units==5 or table2.write_capacity_units==5)
 puts 'Choose a table to delete.'
 choice = gets
 choice.chomp!
 if(choice=='1')
   table1.delete
+  sleep 1 while table1.exists? 
   puts 'Table1 deleted.'
 elsif(choice=='2')
   table2.delete
+  sleep 1 while table1.exists? 
   puts 'Table2 deleted'
 else
   puts 'No tables deleted.'

@@ -197,3 +197,4 @@ elsif(choice=='2')
   puts 'Table2 deleted'
 else
   puts 'No tables deleted.'
+end
